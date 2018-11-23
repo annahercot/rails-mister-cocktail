@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
-  get 'doses/index'
-  get 'doses/show'
-  get 'doses/new'
-  get 'cocktails/index'
-  get 'cocktails/show'
-  get 'cocktails/new'
+  root to: 'cocktails#index'
+  # get 'doses/index'
+  # get 'doses/show'
+  # get 'doses/new'
+  # get 'cocktails/index'
+  # get 'cocktails/show'
+  # get 'cocktails/new'
   resources :cocktails do
     resources :doses, only: [:index, :show, :new, :create]
   end
