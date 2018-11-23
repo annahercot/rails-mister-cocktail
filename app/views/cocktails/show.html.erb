@@ -1,0 +1,24 @@
+<div class="formbackground" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1531387367216-681093c0279b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73ca72de11ae9cd2fa7367dc1ee76705&auto=format&fit=crop&w=2816&q=80');">
+  <div class=container>
+  <p>
+  <%= " #{@cocktail.name} COCKTAIL" %>
+</p>
+</div>
+
+<div class=container>
+  <% @cocktail.doses.each do |dose| %>
+    <p><%= "Ingredient: #{dose.ingredient.name}" %></p>
+    <p><%= "Dose: #{dose.description}" %></p>
+    <%= link_to dose_path(dose), method: :delete do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  <% end %>
+</div>
+
+
+
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+
+<%= link_to "Back to all cocktails", cocktails_path, class: "btn btn-primary"  %>
+
+</div>

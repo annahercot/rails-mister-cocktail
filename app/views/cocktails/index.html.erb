@@ -1,0 +1,21 @@
+<div class="all">
+<div class="container text-center">
+  <div class="add">
+  <p><%= link_to "Add cocktail", cocktails_new_path, class: "btn add" %></p>
+  </div>
+
+  <h1>Here are all the cocktails!</h1>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <%= link_to cocktail_path(cocktail), class: " col-xs-12 col-sm-3" do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://ilovemojitos.com/wp-content/uploads/2017/03/mojito-10-secondes.jpeg');">
+          <div class="card-category"></div>
+          <div class="card-description">
+             <h3><%= cocktail.name %></h2>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+</div>
