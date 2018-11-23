@@ -1,5 +1,6 @@
-<div class="formbackground" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1531387367216-681093c0279b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=73ca72de11ae9cd2fa7367dc1ee76705&auto=format&fit=crop&w=2816&q=80');">
-  <div class=container>
+<% picture = @cocktail.photo.present? ? @cocktail.photo.url : 'https://images.unsplash.com/photo-1532511469295-4b7f87ceba73?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=c380c6d6be598809333782f3addcd487&auto=format&fit=crop&w=1032&q=80' %>
+<div class="formbackground" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= picture %>');">
+  <div class="container-cocktail">
   <p>
     <% if @cocktail.photo.present?  %>
     <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
@@ -7,9 +8,7 @@
     <% end %>
   <%= " #{@cocktail.name} COCKTAIL" %>
 </p>
-</div>
 
-<div class=container>
   <% @cocktail.doses.each do |dose| %>
     <p><%= "Ingredient: #{dose.ingredient.name}" %></p>
     <p><%= "Dose: #{dose.description}" %></p>
@@ -17,12 +16,12 @@
       <i class="fas fa-trash-alt"></i>
     <% end %>
   <% end %>
+<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+
+<%= link_to "Back to all cocktails", cocktails_path, class: "btn btn-primary"  %>
 </div>
 
 
 
-<%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-
-<%= link_to "Back to all cocktails", cocktails_path, class: "btn btn-primary"  %>
 
 </div>

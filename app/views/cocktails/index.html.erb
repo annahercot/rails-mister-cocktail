@@ -1,23 +1,25 @@
 <div class="all">
-<div class="container text-center">
-  <div class="add">
-  <p><%= link_to "Add cocktail", new_cocktail_path, class: "btn add" %></p>
-  </div>
 
-  <h1>Here are all the cocktails!</h1>
-  <div class="row">
-    <% @cocktails.each do |cocktail| %>
-<!--     <%= cl_image_tag("THE_IMAGE_ID_FROM_LIBRARY",
-          width: 400, height: 300, crop: :fill) %> -->
+  <div class="container text-center card_list">
+
+
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail), class: " col-xs-12 col-sm-3" do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://ilovemojitos.com/wp-content/uploads/2017/03/mojito-10-secondes.jpeg');">
-          <div class="card-category"></div>
-          <div class="card-description">
-             <h3><%= cocktail.name %></h2>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-</div>
-</div>
+      <% if cocktail.photo.present? %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, crop: :fill; %>');">
+        <% else %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1517620430776-0ec904756579?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=631b4f98b4e594a6653ee1ae97c3a4c9&auto=format&fit=crop&w=668&q=80');">
+        <% end %>
+        <div class="card-category"></div>
+        <div class="card-description">
+         <h3><%= cocktail.name %></h2>
+         </div>
+       </div>
+       <% end %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+
+
