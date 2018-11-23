@@ -1,12 +1,23 @@
 // Specific CSS for your home-page
 
 .all {
- background-image: url("https://images.unsplash.com/photo-1533905203314-1e0d73d74502?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f2b034d8293c0ebd46b88e6e554e660&auto=format&fit=crop&w=1500&q=80");
+  background-image: url("https://images.unsplash.com/photo-1533905203314-1e0d73d74502?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5f2b034d8293c0ebd46b88e6e554e660&auto=format&fit=crop&w=1500&q=80");
+  background-position: center;
+  height: 100vh;
+  overflow: scroll;
 }
 
 .card_list {
-    padding-top: 70px;
+    padding-top: 700px;
   }
+
+h2 {
+  color: #090909;
+  font-size: 51px;
+  padding-top: 270px;
+  padding-left: 300px;
+  font-style: italic;
+}
 
 h1 {
   color:white;
@@ -23,6 +34,7 @@ h1 {
   padding-top: 160px;
   display: flex;
   justify-content: center;
+  background-position: center;
   }
 
 .formsignin{
